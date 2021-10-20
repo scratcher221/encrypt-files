@@ -27,5 +27,5 @@ let encryptFileFunc = async function() {
 }
 
 
-await encryptFileFunc();
+//await encryptFileFunc();
 await decryptFileFunc();
