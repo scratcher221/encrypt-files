@@ -14,11 +14,12 @@ const encrypt = (text) => {
 };
 
 const decrypt = (hash) => {
-    console.log("Crypto helper: IV:", hash.iv);
+    console.log("Crypto helper, decrypt: IV:", hash.iv);
     const decipher = crypto.createDecipheriv(algorithm, secretKey, Buffer.from(hash.iv, 'hex'));
-    const decrypted = Buffer.concat([decipher.update(Buffer.from(hash.content)), decipher.final()]);
+    //console.log(hash.content);
+    const decrypted = Buffer.concat([decipher.update(Buffer.from(hash.content.data)), decipher.final()]);
 
-    return decrypted.toString();
+    return decrypted;
 };
 
 export {
